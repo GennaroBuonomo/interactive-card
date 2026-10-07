@@ -181,6 +181,46 @@ body {
   background-color: #3c1355;
 }
 
+/* --- STATI DI ERRORE --- */
+.input-group input.input-error {
+  border-color: var(--red-errors);
+}
+
+.error-msg {
+  color: var(--red-errors);
+  font-size: 0.75rem;
+  margin-top: 8px;
+  display: block;
+}
+
+/* --- SCHERMATA DI SUCCESSO --- */
+.success-message {
+  width: 100%;
+  max-width: 380px;
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.success-icon {
+  margin-bottom: 35px;
+}
+
+.success-message h2 {
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.success-message p {
+  color: var(--gray-400);
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
 /* ---------------- RESPONSIVE (MOBILE) ---------------- */
 @media (max-width: 1024px) {
   .app-layout {
@@ -196,19 +236,21 @@ body {
 
   /* Scala proporzionalmente le carte originali usando transform */
   .card-front, .card-back {
-    transform: scale(0.7);
+    transform: scale(0.65);
   }
 
   .card-back {
-    top: -50px;
-    right: -20px;
+    transform-origin: top right;
+    top: 30px;
+    right: 20px;
     left: auto;
   }
 
   .card-front {
-    top: 40px;
+    transform-origin: top left;
+    top: 120px;
+    left: 20px;
     right: auto;
-    left: -20px;
     z-index: 10;
   }
 
@@ -220,4 +262,9 @@ body {
   .card-form {
     margin-left: 0;
   }
+
+  .success-message {
+    margin-left: 0;
+  }
+
 }
