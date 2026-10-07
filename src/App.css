@@ -21,12 +21,14 @@ body {
   background-color: var(--white);
   color: var(--purple-950);
   font-size: 18px;
+  overflow-x: hidden;
 }
 
 /* ---------------- LAYOUT PRINCIPALE ---------------- */
 .app-layout {
   display: flex;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* ---------------- SEZIONE SFONDO E CARTE ---------------- */
@@ -127,6 +129,7 @@ body {
 }
 
 .input-group input {
+  width: 100%;
   padding: 12px 15px;
   border-radius: 8px;
   border: 1px solid var(--gray-400);
