@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+:root {
+  --red-errors: hsl(0, 100%, 66%);
+  --white: hsl(0, 100%, 100%);
+  --gray-200: hsl(270, 3%, 87%);
+  --gray-400: hsl(212, 12%, 71%);
+  --purple-950: hsl(278, 68%, 11%);
+  --grad-start: hsl(249, 99%, 64%);
+  --grad-end: hsl(278, 94%, 30%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  background-color: var(--white);
+  color: var(--purple-950);
+  font-size: 18px;
+}
+
+/* ---------------- LAYOUT PRINCIPALE ---------------- */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---------------- SEZIONE SFONDO E CARTE ---------------- */
+.bg-section {
+  width: 35%;
+  /* Usa l'immagine desktop originale fornita */
+  background-image: url('./assets/bg-main-desktop.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+/* Base per entrambe le carte (Dimensioni originali Frontend Mentor) */
+.card-front, .card-back {
+  position: absolute;
+  width: 447px;
+  height: 245px;
+  border-radius: 10px;
+  color: var(--white);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* CARTA FRONTALE */
+.card-front {
+  background-image: url('./assets/bg-card-front.png');
+  top: 15%;
+  right: -120px;
+  z-index: 2;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-logo {
+  width: 80px; /* Scala il logo SVG originale */
+}
+
+.card-number {
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.card-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* CARTA POSTERIORE */
+.card-back {
+  background-image: url('./assets/bg-card-back.png');
+  top: 52%;
+  right: -200px;
+  z-index: 1;
+}
+
+.cvc-number {
+  position: absolute;
+  top: 111px; /* Centrato esattamente sulla banda grigia dell'immagine */
+  right: 55px;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+/* ---------------- SEZIONE FORM ---------------- */
+.form-section {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card-form {
+  width: 100%;
+  max-width: 380px;
+  margin-left: 100px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+  font-size: 1.1rem;
+  outline: none;
+  color: var(--purple-950);
+}
+
+.input-group input::placeholder {
+  color: var(--gray-400);
+}
+
+.input-group input:focus {
+  border-color: var(--grad-start);
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.exp-group {
+  flex: 1;
+}
+
+.exp-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.cvc-group {
+  flex: 1;
+}
+
+.btn-confirm {
+  width: 100%;
+  padding: 15px;
+  background-color: var(--purple-950);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-confirm:hover {
+  background-color: #3c1355;
+}
+
+/* ---------------- RESPONSIVE (MOBILE) ---------------- */
+@media (max-width: 1024px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .bg-section {
+    width: 100%;
+    height: 240px;
+    /* Usa l'immagine mobile originale fornita */
+    background-image: url('./assets/bg-main-mobile.png');
+  }
+
+  /* Scala proporzionalmente le carte originali usando transform */
+  .card-front, .card-back {
+    transform: scale(0.7);
+  }
+
+  .card-back {
+    top: -50px;
+    right: -20px;
+    left: auto;
+  }
+
+  .card-front {
+    top: 40px;
+    right: auto;
+    left: -20px;
+    z-index: 10;
+  }
+
+  .form-section {
+    width: 100%;
+    margin-top: 80px;
+  }
+
+  .card-form {
+    margin-left: 0;
+  }
+}
